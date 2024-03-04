@@ -29,6 +29,8 @@
     object-fit: cover;
 }
 
+/** Esto se ejecuta cuando isFollowing es FALSE */
+
 .tw-followCard-button{
     cursor: pointer;
     margin-left: 15px;
@@ -40,14 +42,38 @@
     transition: .3 ease background-color;
 }
 
-.tw-followCard-button:hover{
-    background-color: #09f;
+/***/
+
+.tw-followCard-text{
+    display: block;
 }
 
+.tw-followCard-stopFollow{
+    display: none;
+}
+
+/** Esto se ejecuta cuando isFollowing es TRUE */
+
 .tw-followCard-button.is-Following{
-    border: 1px solid red;
+    border: 1px solid #bbb;
+    background: transparent;
+    color: #fff;
+    width: 140px;
 }
 
 .tw-followCard-button.is-Following:hover{
-    background-color: red;
+    background-color: rgba(177, 45, 45, 0.268);
+    color: red;
+    border: 1px solid red;
+    transition: .3s ease all;
 }
+
+.tw-followCard-button.is-Following:hover .tw-followCard-text{
+    display: none;
+}
+
+.tw-followCard-button.is-Following:hover .tw-followCard-stopFollow{
+    display: block;
+}
+
+/***/
