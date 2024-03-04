@@ -4,7 +4,7 @@ import { useState } from 'react';
 // styles
 import './TwitterFollowCard.css'
 
-export function TwitterFollowCard ({userName, name}){
+export function TwitterFollowCard ({children, userName, name}){
     // ? Definición de estado por defecto
     // Usamos desesctructuracion ya que useState es un vector con dos posiciones
     // *[0] -> el estado del bombillo, encendido o apagado (en este caso lo tenemos por defecto apagado)
@@ -15,7 +15,10 @@ export function TwitterFollowCard ({userName, name}){
     //pasar por parametro a la imagen del avatar de forma dinamica
     const imgSrc = `https://unavatar.io/${userName}`;
 
+
     const text = isFollowing ? 'Siguiendo' : 'Seguir'
+
+
     const buttonClassName = isFollowing
         ? 'tw-followCard-button is-Following'
         : 'tw-followCard-button'
@@ -30,7 +33,7 @@ export function TwitterFollowCard ({userName, name}){
             <header className='tw-followCard-header'>
                 <img className='tw-followCard-avatar' alt="avatar" src={imgSrc} />
                 <div className='tw-followCard-info'>
-                    <strong>{name}</strong>
+                    <strong>{children}</strong>
                     <span className='tw-followCard-infoUserName'>@{userName}</span>
                 </div>
             </header>
